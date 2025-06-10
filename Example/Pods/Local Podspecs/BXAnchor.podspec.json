@@ -1,0 +1,22 @@
+{
+  "name": "BXAnchor",
+  "version": "0.1.0",
+  "summary": "A short description of BXAnchor.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Sann Chhailong/BXAnchor",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Sann Chhailong": "chhailong.dev@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Sann Chhailong/BXAnchor.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BXAnchor/Classes/**/*"
+}
