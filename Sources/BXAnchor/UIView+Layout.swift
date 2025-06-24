@@ -128,7 +128,7 @@ extension UIView {
         return anchor(top: superviewTopAnchor, leading: superviewLeadingAnchor, bottom: superviewBottomAnchor, trailing: superviewTrailingAnchor, padding: padding)
     }
     
-    public func centerInSuperview(size: CGSize = .zero, yPadding: CGFloat = 0, xPadding: CGFloat = 0) {
+    public func centerInSuperview(width: CGFloat? = nil, height: CGFloat? = nil, yPadding: CGFloat = 0, xPadding: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewCenterXAnchor = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: superviewCenterXAnchor, constant: xPadding).isActive = true
@@ -138,12 +138,11 @@ extension UIView {
             centerYAnchor.constraint(equalTo: superviewCenterYAnchor, constant: yPadding).isActive = true
         }
         
-        if size.width != 0 {
-            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        if let width {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
         }
-        
-        if size.height != 0 {
-            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        if let height {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
     
