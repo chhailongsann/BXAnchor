@@ -227,37 +227,37 @@ extension UIView {
   }
   
   // MARK: Constraints (for animation)
-
+  @discardableResult
   public func constraintWidth(_ constant: CGFloat) -> NSLayoutConstraint {
     let widthConstraint = widthAnchor.constraint(equalToConstant: constant)
     widthConstraint.isActive = true
     return widthConstraint
   }
-
+  @discardableResult
   public func constraintHeight(_ constant: CGFloat) -> NSLayoutConstraint {
     let heightConstraint = heightAnchor.constraint(equalToConstant: constant)
     heightConstraint.isActive = true
     return heightConstraint
   }
-
+  @discardableResult
   public func constraintTop(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let topConstraint = topAnchor.constraint(equalTo: anchor, constant: constant)
     topConstraint.isActive = true
     return topConstraint
   }
-  
+  @discardableResult
   public func constraintBottom(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let bottomConstraint = bottomAnchor.constraint(equalTo: anchor, constant: -constant)
     bottomConstraint.isActive = true
     return bottomConstraint
   }
-  
+  @discardableResult
   public func constraintLeading(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let leadingConstraint = leadingAnchor.constraint(equalTo: anchor, constant: constant)
     leadingConstraint.isActive = true
     return leadingConstraint
   }
-  
+  @discardableResult
   public func constraintTrailing(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let trailingConstraint = trailingAnchor.constraint(equalTo: anchor, constant: -constant)
     trailingConstraint.isActive = true
