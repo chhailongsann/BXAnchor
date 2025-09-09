@@ -9,53 +9,65 @@
 import UIKit
 
 extension UIStackView {
-    
-    
-    @discardableResult
-    public func padAll(_ padding: CGFloat) -> UIStackView {
-        isLayoutMarginsRelativeArrangement = true
-        layoutMargins.right = padding
-        layoutMargins.left = padding
-        layoutMargins.bottom = padding
-        layoutMargins.top = padding
-        return self
+  
+  @discardableResult
+  public func spacing(_ value: CGFloat) -> UIStackView {
+    self.spacing = value
+    return self
+  }
+  @discardableResult
+  public func alignment(_ value: UIStackView.Alignment) -> UIStackView {
+    self.alignment = value
+    return self
+  }
+  
+  @discardableResult
+  public func distribution(_ value: UIStackView.Distribution) -> UIStackView {
+    self.distribution = value
+    return self
+  }
+  
+  @discardableResult
+  public func padAll(_ padding: CGFloat) -> UIStackView {
+    isLayoutMarginsRelativeArrangement = true
+    layoutMargins.right = padding
+    layoutMargins.left = padding
+    layoutMargins.bottom = padding
+    layoutMargins.top = padding
+    return self
+  }
+  
+  @discardableResult
+  public func padding(horizontal: CGFloat? = nil, vertical: CGFloat? = nil) -> UIStackView {
+    isLayoutMarginsRelativeArrangement = true
+    if let horizontal = horizontal {
+      layoutMargins.right = horizontal
+      layoutMargins.left = horizontal
     }
     
-    
-    @discardableResult
-    public func spacing(_ value: CGFloat) -> UIStackView {
-        self.spacing = value
-        return self
+    if let vertical = vertical {
+      layoutMargins.bottom = vertical
+      layoutMargins.top = vertical
     }
-    @discardableResult
-    public func alignment(_ value: UIStackView.Alignment) -> UIStackView {
-        self.alignment = value
-        return self
-    }
-    
-    @discardableResult
-    public func distribution(_ value: UIStackView.Distribution) -> UIStackView {
-        self.distribution = value
-        return self
+    return self
+  }
+  
+  @discardableResult
+  public func padding(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) -> UIStackView {
+    isLayoutMarginsRelativeArrangement = true
+    if let top = top {
+      layoutMargins.top = top
     }
     
-    @discardableResult
-    public func paddingSymmetri(horizontal: CGFloat = 0, vertical: CGFloat = 0) -> UIStackView {
-        isLayoutMarginsRelativeArrangement = true
-        layoutMargins.right = horizontal
-        layoutMargins.left = horizontal
-        layoutMargins.bottom = vertical
-        layoutMargins.top = vertical
-        return self
+    if let right = right {
+      layoutMargins.right = right
     }
-    
-    @discardableResult
-    public func padding(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) -> UIStackView {
-        isLayoutMarginsRelativeArrangement = true
-        layoutMargins.right = right
-        layoutMargins.left = left
-        layoutMargins.bottom = bottom
-        layoutMargins.top = top
-        return self
+    if let left = left {
+      layoutMargins.left = left
     }
+    if let bottom = bottom {
+      layoutMargins.bottom = bottom
+    }
+    return self
+  }
 }
