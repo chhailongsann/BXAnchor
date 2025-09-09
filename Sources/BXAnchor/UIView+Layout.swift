@@ -228,37 +228,37 @@ extension UIView {
   
   // MARK: Constraints (for animation)
 
-  func constraintWidth(_ constant: CGFloat) -> NSLayoutConstraint {
+  public func constraintWidth(_ constant: CGFloat) -> NSLayoutConstraint {
     let widthConstraint = widthAnchor.constraint(equalToConstant: constant)
     widthConstraint.isActive = true
     return widthConstraint
   }
 
-  func constraintHeight(_ constant: CGFloat) -> NSLayoutConstraint {
+  public func constraintHeight(_ constant: CGFloat) -> NSLayoutConstraint {
     let heightConstraint = heightAnchor.constraint(equalToConstant: constant)
     heightConstraint.isActive = true
     return heightConstraint
   }
 
-  func constraintTop(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+  public func constraintTop(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let topConstraint = topAnchor.constraint(equalTo: anchor, constant: constant)
     topConstraint.isActive = true
     return topConstraint
   }
   
-  func constraintBottom(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+  public func constraintBottom(to anchor: NSLayoutYAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let bottomConstraint = bottomAnchor.constraint(equalTo: anchor, constant: -constant)
     bottomConstraint.isActive = true
     return bottomConstraint
   }
   
-  func constraintLeading(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+  public func constraintLeading(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let leadingConstraint = leadingAnchor.constraint(equalTo: anchor, constant: constant)
     leadingConstraint.isActive = true
     return leadingConstraint
   }
   
-  func constraintTrailing(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
+  public func constraintTrailing(to anchor: NSLayoutXAxisAnchor, constant: CGFloat = 0) -> NSLayoutConstraint {
     let trailingConstraint = trailingAnchor.constraint(equalTo: anchor, constant: -constant)
     trailingConstraint.isActive = true
     return trailingConstraint
@@ -267,45 +267,45 @@ extension UIView {
   
   // MARK: SIZE
   @discardableResult
-  func width(_ constant: CGFloat) -> Self{
+  public func width(_ constant: CGFloat) -> Self {
     widthAnchor.constraint(equalToConstant: constant).isActive = true
     return self
   }
   
   @discardableResult
-  func height(_ constant: CGFloat) -> Self {
+  public func height(_ constant: CGFloat) -> Self {
     heightAnchor.constraint(equalToConstant: constant).isActive = true
     return self
   }
 
   @discardableResult
-  func maxWidth(_ constant: CGFloat) -> Self {
+  public func maxWidth(_ constant: CGFloat) -> Self {
     widthAnchor.constraint(lessThanOrEqualToConstant: constant).isActive = true
     return self
   }
   
   @discardableResult
-  func maxHeight(_ constant: CGFloat) -> Self {
+  public func maxHeight(_ constant: CGFloat) -> Self {
     heightAnchor.constraint(lessThanOrEqualToConstant: constant).isActive = true
     return self
   }
   
   
   @discardableResult
-  func minWidth(_ constant: CGFloat) -> Self{
+  public func minWidth(_ constant: CGFloat) -> Self{
     widthAnchor.constraint(greaterThanOrEqualToConstant: constant).isActive = true
     return self
   }
   
   @discardableResult
-  func minHeight(_ constant: CGFloat) -> Self {
+  public func minHeight(_ constant: CGFloat) -> Self {
     heightAnchor.constraint(greaterThanOrEqualToConstant: constant).isActive = true
     return self
   }
   
   
   // MARK: Animations
-  func shake(feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle = .heavy){
+  public func shake(feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle = .heavy){
     let generator = UIImpactFeedbackGenerator(style: feedbackStyle)
     generator.prepare()
     generator.impactOccurred()
@@ -319,7 +319,7 @@ extension UIView {
     
   }
   
-  func bouncing(isUp: Bool){
+  public func bouncing(isUp: Bool){
     
     let animation = CABasicAnimation(keyPath: "position")
     animation.duration = 0.4
@@ -331,7 +331,7 @@ extension UIView {
     
   }
   
-  func jiggle( _ value: Bool, angle: CGFloat = CGFloat.pi / 120) {
+  public func jiggle( _ value: Bool, angle: CGFloat = CGFloat.pi / 120) {
     let animation = CABasicAnimation(keyPath: "transform.rotation.z")
     animation.duration = 0.1
     animation.repeatCount = .infinity
