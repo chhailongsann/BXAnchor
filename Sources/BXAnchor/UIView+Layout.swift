@@ -150,6 +150,11 @@ extension UIView {
     }
     return self
   }
+  @discardableResult
+  public func top(constraint: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Self {
+    topAnchor.constraint(equalTo: constraint, constant: constant).isActive = true
+    return self
+  }
   
   
   @discardableResult
@@ -165,6 +170,12 @@ extension UIView {
     }
     return self
   }
+  @discardableResult
+  public func leading(constraint: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Self {
+    leadingAnchor.constraint(equalTo: constraint, constant: constant).isActive = true
+    return self
+  }
+  
   
   @discardableResult
   public func bottom(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
@@ -179,6 +190,12 @@ extension UIView {
     }
     return self
   }
+  @discardableResult
+  public func bottom(constraint: NSLayoutYAxisAnchor, _ constant: CGFloat = 0) -> Self {
+    bottomAnchor.constraint(equalTo: constraint, constant: constant).isActive = true
+    return self
+  }
+  
   
   @discardableResult
   public func trailing(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
@@ -191,6 +208,12 @@ extension UIView {
         trailingAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
       }
     }
+    return self
+  }
+  
+  @discardableResult
+  public func trailing(constraint: NSLayoutXAxisAnchor, _ constant: CGFloat = 0) -> Self {
+    trailingAnchor.constraint(equalTo: constraint, constant: constant).isActive = true
     return self
   }
   
