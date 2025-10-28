@@ -118,19 +118,19 @@ extension UIView {
   // MARK: Alignment
   @discardableResult
   public func fill(padding: UIEdgeInsets = .zero, ignoreSafeArea: Bool = false) -> Self {
-        
+    
     if ignoreSafeArea {
       if let superviewTopAnchor = superview?.topAnchor,
-            let superviewBottomAnchor = superview?.bottomAnchor,
-            let superviewLeadingAnchor = superview?.leadingAnchor,
-            let superviewTrailingAnchor = superview?.trailingAnchor {
+         let superviewBottomAnchor = superview?.bottomAnchor,
+         let superviewLeadingAnchor = superview?.leadingAnchor,
+         let superviewTrailingAnchor = superview?.trailingAnchor {
         return anchor(top: superviewTopAnchor, leading: superviewLeadingAnchor, bottom: superviewBottomAnchor, trailing: superviewTrailingAnchor, padding: padding)
       }
     } else {
       if let superviewTopAnchor = superview?.safeAreaLayoutGuide.topAnchor,
-            let superviewBottomAnchor = superview?.safeAreaLayoutGuide.bottomAnchor,
-            let superviewLeadingAnchor = superview?.safeAreaLayoutGuide.leadingAnchor,
-            let superviewTrailingAnchor = superview?.safeAreaLayoutGuide.trailingAnchor {
+         let superviewBottomAnchor = superview?.safeAreaLayoutGuide.bottomAnchor,
+         let superviewLeadingAnchor = superview?.safeAreaLayoutGuide.leadingAnchor,
+         let superviewTrailingAnchor = superview?.safeAreaLayoutGuide.trailingAnchor {
         return anchor(top: superviewTopAnchor, leading: superviewLeadingAnchor, bottom: superviewBottomAnchor, trailing: superviewTrailingAnchor, padding: padding)
       }
     }
@@ -138,15 +138,9 @@ extension UIView {
   }
   
   @discardableResult
-  public func top(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
-    if ignoreSafeArea {
-      if let superviewAnchor = superview?.topAnchor {
-        topAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
-      }
-    } else {
-      if let superviewAnchor = superview?.safeAreaLayoutGuide.topAnchor {
-        topAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
-      }
+  public func top(_ constant: CGFloat = 0) -> Self {
+    if let superviewAnchor = superview?.safeAreaLayoutGuide.topAnchor {
+      topAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
     }
     return self
   }
@@ -158,15 +152,9 @@ extension UIView {
   
   
   @discardableResult
-  public func leading(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
-    if ignoreSafeArea {
-      if let superviewAnchor = superview?.leadingAnchor {
-        leadingAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
-      }
-    } else {
-      if let superviewAnchor = superview?.safeAreaLayoutGuide.leadingAnchor {
-        leadingAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
-      }
+  public func leading(_ constant: CGFloat = 0) -> Self {
+    if let superviewAnchor = superview?.leadingAnchor {
+      leadingAnchor.constraint(equalTo: superviewAnchor, constant: constant).isActive = true
     }
     return self
   }
@@ -178,15 +166,9 @@ extension UIView {
   
   
   @discardableResult
-  public func bottom(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
-    if ignoreSafeArea {
-      if let superviewAnchor = superview?.bottomAnchor {
-        bottomAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
-      }
-    } else {
-      if let superviewAnchor = superview?.safeAreaLayoutGuide.bottomAnchor {
-        bottomAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
-      }
+  public func bottom(_ constant: CGFloat = 0) -> Self {
+    if let superviewAnchor = superview?.safeAreaLayoutGuide.bottomAnchor {
+      bottomAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
     }
     return self
   }
@@ -198,15 +180,9 @@ extension UIView {
   
   
   @discardableResult
-  public func trailing(_ constant: CGFloat = 0, ignoreSafeArea: Bool = false) -> Self {
-    if ignoreSafeArea {
-      if let superviewAnchor = superview?.trailingAnchor {
-        trailingAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
-      }
-    } else {
-      if let superviewAnchor = superview?.safeAreaLayoutGuide.trailingAnchor {
-        trailingAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
-      }
+  public func trailing(_ constant: CGFloat = 0) -> Self {
+    if let superviewAnchor = superview?.safeAreaLayoutGuide.trailingAnchor {
+      trailingAnchor.constraint(equalTo: superviewAnchor, constant: -constant).isActive = true
     }
     return self
   }
@@ -300,7 +276,7 @@ extension UIView {
     heightAnchor.constraint(equalToConstant: constant).isActive = true
     return self
   }
-
+  
   @discardableResult
   public func maxWidth(_ constant: CGFloat) -> Self {
     widthAnchor.constraint(lessThanOrEqualToConstant: constant).isActive = true
