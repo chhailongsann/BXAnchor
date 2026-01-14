@@ -18,8 +18,9 @@ extension UIView {
     stackView.spacing = spacing
     stackView.alignment = alignment
     stackView.distribution = distribution
-    addSubview(stackView)
-    stackView.fill()
+    stackView.layout(in: self) {
+      $0.fill()
+    }
     return stackView
   }
   
